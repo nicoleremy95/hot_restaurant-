@@ -6,7 +6,7 @@ var path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 5000;
+var PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +19,7 @@ var reservations = [
       name: "",
       phone: "",
       email: "",
-      uniqueId: null
+      uniqueId: ""
     }
   ];
 
@@ -39,27 +39,17 @@ var reservations = [
 
   app.get("/api/tables", function(req, res) {
       for (var i = 0; i<5; i++) {
-        var table = table + reservations[i];
+        var table = table + JSON.stringify(reservations[i]);
         return res.json(table);
       }
   });
 
   app.get("/api/waitlist", function(req, res) {
-      for (var i = 5; i<tables.length; i++) {
-        var waitList = waitList + reservations[i];
+      for (var i = 5; i<reservations.length; i++) {
+        var waitList = waitList + JSON.stringify(reservations[i]);
         return res.json(waitList);
       }
   });
-
-
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
-
-
-
-
-
 
 //Create a New Reservation 
 

@@ -2,7 +2,7 @@ $("#add-btn").on("click", function(event) {
     event.preventDefault();
     var newTable = {
       name: $("#name").val().trim(),
-      phoneNumber: $("#phone-number").val().trim(),
+      phone: $("#phone-number").val().trim(),
       email: $("#email").val().trim(),
       uniqueId: $("#unique-id").val().trim()
     };

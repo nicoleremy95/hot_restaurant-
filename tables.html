@@ -22,7 +22,7 @@
       <h3>Current Reservations and Wait List</h3>
       <hr>
       <a href="/reserve"><button class="btn btn-dark btn-lg"><span class="fa fa-plus"></span> Make a Reservation</button></a>
-      <a href="/home"><button class="btn btn-lg"><span
+      <a href="/"><button class="btn btn-lg"><span
             class="fa fa-home"></span></button></a>
     </div>
 </div>
@@ -76,7 +76,7 @@
                 .then(function(tableData) {
           
                   // Here we then log the tableData to console, where it will show up as an object.
-                  console.log(tableData);
+                  console.log(JSON.stringify(tableData));
                   console.log("------------------------------------");
           
                   // Loop through and display each of the customers
