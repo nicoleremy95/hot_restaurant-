@@ -66,16 +66,10 @@ app.post("/api/tables", function(req, res) {
       waitlist.push(reservations)
       res.json(waitlist);
     }
- // }
-  
-  console.log(tables);
-  console.log(waitList);
-
-   
-   
+ })
+  // console.log(tables);
+  // console.log(waitList);
    //res.json(newTable);
-
-
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
