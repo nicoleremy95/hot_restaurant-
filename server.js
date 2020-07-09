@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-var express = require("express");
-var path = require("path");
-
-
-var app = express();
-var PORT = process.env.PORT ||3000;
-
-=======
 // Dependencies
 // =============================================================
 var express = require("express");
@@ -18,7 +9,6 @@ var app = express();
 var PORT = process.env.PORT || 5000;
 
 // Sets up the Express app to handle data parsing
->>>>>>> dev
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -32,7 +22,7 @@ var reservations = [
       uniqueId: null
     }
   ];
-  
+
 // Routes
 // =============================================================
   app.get("/", function(req, res) {
