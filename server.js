@@ -14,7 +14,7 @@ app.use(express.json());
 
 var waitlist = [];
 var tables = [];
-var reservations = [
+/*var reservations = [
     {
       routeName: "",
       name: "",
@@ -22,7 +22,7 @@ var reservations = [
       email: "",
       uniqueId: ""
     }
-  ];
+  ];*/
 
 // Routes
 // =============================================================
@@ -56,19 +56,23 @@ var reservations = [
 app.post("/api/tables", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
-  var newTable = req.body;
+  var reservations = req.body;
 
-  for (var i = 0; i<reservations.length; i++){
-    if (i<5){
-      tables.push(reservations[i])
+ // for (var i = 0; i<reservations.length; i++){
+    if (tables.length<5){
+      tables.push(reservations)
+      res.json(tables);
     } else {
-      waitlist.push(reservations[i])
+      waitlist.push(reservations)
+      res.json(waitlist);
     }
-  }
-  console.log(newTable);
+ // }
+  
+  console.log(tables);
+  console.log(waitList);
 
-   res.json(tables);
-   res.json(waitlist);
+   
+   
    //res.json(newTable);
 });
 
