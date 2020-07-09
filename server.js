@@ -12,7 +12,8 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
+var waitlist = [];
+var tables = [];
 var reservations = [
     {
       routeName: "",
@@ -38,21 +39,38 @@ var reservations = [
   });
 
   app.get("/api/tables", function(req, res) {
-      for (var i = 0; i<5; i++) {
-        var table = table + JSON.stringify(reservations[i]);
-        return res.json(table);
-      }
+      //for (var i = 0; i<5; i++) {
+       // var table = table + JSON.stringify(reservations[i]);
+        
+      return res.json(tables);
   });
 
   app.get("/api/waitlist", function(req, res) {
-      for (var i = 5; i<reservations.length; i++) {
-        var waitList = waitList + JSON.stringify(reservations[i]);
-        return res.json(waitList);
-      }
+      //for (var i = 5; i<reservations.length; i++) {
+        //var waitList = waitList + JSON.stringify(reservations[i]);
+        
+      return res.json(waitList);
   });
 
 //Create a New Reservation 
+app.post("/api/tables", function(req, res) {
+  // req.body hosts is equal to the JSON post sent from the user
+  // This works because of our body parsing middleware
+  var newTable = req.body;
 
+  for (var i = 0; i<reservations.length; i++){
+    if (i<5){
+      tables.push(reservations[i])
+    } else {
+      waitlist.push(reservations[i])
+    }
+  }
+  console.log(newTable);
+
+   res.json(tables);
+   res.json(waitlist);
+   //res.json(newTable);
+});
 
 
 // Starts the server to begin listening
