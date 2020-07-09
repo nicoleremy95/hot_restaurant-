@@ -57,20 +57,21 @@ app.post("/api/tables", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
   var newTable = req.body;
-
-  for (var i = 0; i<reservations.length; i++){
-    if (i<5){
-      tables.push(reservations[i])
-    } else {
-      waitlist.push(reservations[i])
-    }
+  reservations.push(newTable);
+  
+  if (tables.length < 5) {
+    tables.push(newTable);
+    console.log(tables);
+  } else {
+    waitlist.push(newTable);
+    console.log(waitlist);
   }
-  console.log(newTable);
 
-   res.json(tables);
-   res.json(waitlist);
+  res.json(tables);
+  res.json(waitlist);
+  });
+
    //res.json(newTable);
-});
 
 
 // Starts the server to begin listening
