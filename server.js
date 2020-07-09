@@ -12,7 +12,7 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var waitlist = [];
+var waitList = [];
 var tables = [];
 /*var reservations = [
     {
@@ -63,8 +63,8 @@ app.post("/api/tables", function(req, res) {
       tables.push(reservations)
       res.json(tables);
     } else {
-      waitlist.push(reservations)
-      res.json(waitlist);
+      waitList.push(reservations)
+      res.json(waitList);
     }
  })
   // console.log(tables);
