@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/nicoleremy95/hot_restaurant-#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.18.2"
   }
 }
